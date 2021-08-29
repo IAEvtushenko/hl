@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.picture {
+    width: 400px;
+    height: 400px;
+    background-size: cover;
+}
+
+.content {
+    width: 400px;
+    height: 400px;
+    background: var(--clr-neutral-100);
+    padding: 15px;
+    color: #fff;
+}
+
+.content h4 {
+    font-size: 2em;
+}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block headers %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'shop/style.css' %}"/>
+{% endblock %}
+
+{% block content %}
+{% for product in products %}
+<a href="{% url 'product_detail' slug=product.slug %}">{{ product.title }}</a>
+{% endfor %}
+<script src="{% static 'main/script.js' %}"></script>
+{% endblock %}

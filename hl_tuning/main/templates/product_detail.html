@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block headers %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'shop/style.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+
+    </div>
+</section>
+<section id="categories">
+    <div class="category-list">
+        {% for category in categories %}
+        <h4><a href="{% url 'category' slug=category.slug %}">{{ category.name }}</a></h4>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="picture" style="background-image: url({{product.image.url}});"></div>
+        <div class="content">
+            <h4>{{ product.title }}</h4>
+            <p>{{ product.description }}</p>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

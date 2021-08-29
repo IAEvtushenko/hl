@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="author" content=""/>
+    <title>HL tuning | Home</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/nicepage.css' %}"/>
+    <link rel="stylesheet" href="{% static 'main/main.css' %}"/>
+    {% block headers %}
+    {% endblock %}
+</head>
+<body>
+<header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-a9f0">
+    <div class="u-section-rows">
+        <div class="u-custom-color-1 u-section-row u-section-row-2" id="sec-37e8">
+            <div class="u-clearfix u-sheet u-sheet-2">
+                <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1680"
+                   data-image-height="630">
+                    <img src="{% static 'images/logo.png' %}" class="u-logo-image u-logo-image-1" data-image-width="80">
+                </a>
+                <nav data-position="" class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                    <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
+                        <a class="u-button-style u-custom-active-border-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link"
+                           href="#" style="padding: 2px 0px; font-size: calc(1em + 4px);">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
+                            </svg>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;">
+                                        <rect y="1" width="16" height="2"></rect>
+                                        <rect y="7" width="16" height="2"></rect>
+                                        <rect y="13" width="16" height="2"></rect>
+                                    </symbol>
+                                </defs>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="u-custom-menu u-nav-container">
+                        <ul class="u-nav u-unstyled u-nav-1">
+                            <li class="u-nav-item"><a
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    href="{% url 'main' %}" style="padding: 10px 20px;"><div class="glow"></div><p>Главная</p></a>
+                            </li>
+                            <li class="u-nav-item"><a
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    href="{% url 'main' %}}#carousel_1167" data-page-id="758024490"
+                                    style="padding: 10px 20px;"><div class="glow"></div><p>Контакты</p></a>
+                            </li>
+                            <li class="u-nav-item"><a
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    href="{% url 'shop_main' %}" style="padding: 10px 20px;"><div class="glow"></div><p>Интернет-магазин</p></a>
+                            </li>
+                            <li class="u-nav-item"><a
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    href="{% url 'main' %}#works" style="padding: 10px 20px;"><div class="glow"></div><p>Проекты</p></a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="u-nav-item"><a
+                                    href="{% url 'lk' %}"
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    style="padding: 10px 20px;"><div class="glow"></div><p>{% if user.first_name %} {{ user.first_name }} {% else %} {{ user.username }} {% endif %}</p></a>
+                            </li>
+                            {% endif %}
+                            <li class="u-nav-item"><a
+                                    href="{% url 'cart' %}"
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    style="padding: 10px 20px;"><div class="glow"></div><p>Корзина ({{ cart.total_products }})</p></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-custom-menu u-nav-container-collapse">
+                        <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                            <div class="u-sidenav-overflow">
+                                <div class="u-menu-close"></div>
+                                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
+                                                              style="padding: 10px 20px;">Продукт</a>
+                                    </li>
+                                    <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                                                              href="Главная.html#carousel_1167" data-page-id="758024490"
+                                                              style="padding: 10px 20px;">Контакты</a>
+                                    </li>
+                                    <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                                                              href="Интернет-магазин.html" style="padding: 10px 20px;">Интернет-магазин</a>
+                                    </li>
+                                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="#"
+                                                              style="padding: 10px 20px;">Проекты</a>
+                                    </li>
+                                    <li class="u-nav-item"><a class="u-button-style u-nav-link"
+                                                              style="padding: 10px 20px;">{% if user.first_name %} {{ user.first_name }} {% else %} {{ user.username }} {% endif %}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="u-custom-color-1 u-section-row u-section-row-1" id="sec-46aa">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                    <a class="u-social-url" title="instagram" target="_blank"
+                       href="https://www.instagram.com/name"><span
+                            class="u-icon u-social-icon u-social-instagram u-icon-1"><svg class="u-svg-link"
+                                                                                          preserveAspectRatio="xMidYMin slice"
+                                                                                          viewBox="0 0 112 112"
+                                                                                          style=""><use
+                            xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9cba"></use></svg><svg
+                            class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-9cba"><circle
+                            fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M55.9,38.2c-9.9,0-17.9,8-17.9,17.9C38,66,46,74,55.9,74c9.9,0,17.9-8,17.9-17.9C73.8,46.2,65.8,38.2,55.9,38.2
+            z M55.9,66.4c-5.7,0-10.3-4.6-10.3-10.3c-0.1-5.7,4.6-10.3,10.3-10.3c5.7,0,10.3,4.6,10.3,10.3C66.2,61.8,61.6,66.4,55.9,66.4z"></path><path
+                            fill="#FFFFFF"
+                            d="M74.3,33.5c-2.3,0-4.2,1.9-4.2,4.2s1.9,4.2,4.2,4.2s4.2-1.9,4.2-4.2S76.6,33.5,74.3,33.5z"></path><path
+                            fill="#FFFFFF" d="M73.1,21.3H38.6c-9.7,0-17.5,7.9-17.5,17.5v34.5c0,9.7,7.9,17.6,17.5,17.6h34.5c9.7,0,17.5-7.9,17.5-17.5V38.8
+            C90.6,29.1,82.7,21.3,73.1,21.3z M83,73.3c0,5.5-4.5,9.9-9.9,9.9H38.6c-5.5,0-9.9-4.5-9.9-9.9V38.8c0-5.5,4.5-9.9,9.9-9.9h34.5
+            c5.5,0,9.9,4.5,9.9,9.9V73.3z"></path></svg></span>
+                    </a>
+                    <a class="u-social-url" target="_blank" title="VK" href=""><span
+                            class="u-icon u-social-icon u-social-vk u-icon-2"><svg class="u-svg-link"
+                                                                                   preserveAspectRatio="xMidYMin slice"
+                                                                                   viewBox="0 0 112 112" style=""><use
+                            xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-d9e0"></use></svg><svg
+                            class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-d9e0"><circle
+                            fill="currentColor" class="st0" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M88.2,80.7l-9.8,0.1c0,0-2.1,0.4-4.9-1.5c-3.7-2.5-7.2-9.1-9.9-8.2C60.9,72,61,77.9,61,77.9s0,1.3-0.6,1.9
+            c-0.7,0.7-2,0.9-2,0.9H54c0,0-9.7,0.6-18.3-8.3c-9.3-9.7-17.6-29-17.6-29s-0.5-1.3,0-1.9c0.6-0.7,2.2-0.7,2.2-0.7l10.5-0.1
+            c0,0,1,0.2,1.7,0.7c0.6,0.4,0.9,1.2,0.9,1.2s1.7,4.3,4,8.2c4.4,7.6,6.4,9.3,7.9,8.4c2.2-1.2,1.5-10.7,1.5-10.7s0-3.5-1.1-5
+            c-0.9-1.2-2.5-1.5-3.3-1.6c-0.6-0.1,0.4-1.5,1.6-2.1c1.9-0.9,5.2-1,9.2-0.9c3.1,0,4,0.2,5.2,0.5c3.6,0.9,2.4,4.3,2.4,12.4
+            c0,2.6-0.5,6.3,1.4,7.5c0.8,0.5,2.8,0.1,7.7-8.3c2.3-4,4.1-8.6,4.1-8.6s0.4-0.8,1-1.2s1.4-0.3,1.4-0.3l11.1-0.1c0,0,3.3-0.4,3.9,1.1
+            c0.6,1.6-1.2,5.3-5.8,11.3c-7.4,9.9-8.3,9-2.1,14.7c5.9,5.5,7.1,8.1,7.3,8.5C93.4,80.4,88.2,80.7,88.2,80.7z"></path></svg></span>
+                    </a>
+                    <a class="u-social-url" target="_blank" title="YouTube" href=""><span
+                            class="u-icon u-social-icon u-social-youtube u-icon-3"><svg class="u-svg-link"
+                                                                                        preserveAspectRatio="xMidYMin slice"
+                                                                                        viewBox="0 0 112 112" style=""><use
+                            xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-76af"></use></svg><svg
+                            class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-76af"><circle
+                            fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF"
+                                                                                          d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+                    </a>
+                    <a class="u-social-url" target="_blank" title="Telegram" href=""><span
+                            class="u-icon u-social-icon u-social-telegram u-icon-4"><svg class="u-svg-link"
+                                                                                         preserveAspectRatio="xMidYMin slice"
+                                                                                         viewBox="0 0 112 112" style=""><use
+                            xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-5bb5"></use></svg><svg
+                            class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-5bb5"><circle
+                            fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M18.4,53.2l64.7-24.9c3-1.1,5.6,0.7,4.7,5.3l0,0l-11,51.8c-0.8,3.7-3,4.6-6.1,2.8L53.9,75.8l-8.1,7.8
+	c-0.9,0.9-1.7,1.6-3.4,1.6l1.2-17l31.1-28c1.4-1.2-0.3-1.9-2.1-0.7L34.2,63.7l-16.6-5.2C14,57.4,14,54.9,18.4,53.2L18.4,53.2z"></path></svg></span>
+                    </a>
+                </div>
+                <form action="#" method="get"
+                      class="u-border-1 u-border-grey-30 u-expanded-width-xs u-search u-search-right u-search-1">
+                    <button class="u-search-button" type="submit">
+                <span class="u-search-icon u-spacing-10 u-text-grey-40">
+                  <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966" style=""><use
+                          xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9dab"></use></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                       id="svg-9dab" x="0px" y="0px" viewBox="0 0 56.966 56.966"
+                       style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" class="u-svg-content"><path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"></path><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                </span>
+                    </button>
+                    <input class="u-search-input" type="search" name="search" value="" placeholder="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+{% block content %}
+{% endblock %}
+<section class="skrollable u-clearfix u-image u-parallax u-section-2" src="" id="carousel_a064" data-image-width="3840" data-image-height="2160">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
+        <div class="u-align-left u-container-style u-group u-white u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h1 class="u-text u-text-1">Хочу консультацию</h1>
+            <div class="u-expanded-width u-form u-form-1">
+              <form action="#" method="POST" class="u-clearfix u-form-spacing-27 u-form-vertical u-inner-form" style="padding: 0px;" source="custom" name="form">
+                <div class="u-form-group u-form-name u-form-group-1">
+                  <label for="name-30a4" class="u-form-control-hidden u-label">Name</label>
+                  <input type="text" id="name-30a4" name="name" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white u-input-1" required="" placeholder="Имя">
+                </div>
+                <div class="u-form-group u-form-phone u-form-group-2">
+                  <label for="phone-b88b" class="u-form-control-hidden u-label"></label>
+                  <input type="tel" pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Телефон" id="phone-b88b" name="phone" class="u-border-2 u-border-black u-border-no-left u-border-no-right u-border-no-top u-input u-input-rectangle u-white u-input-2" required="">
+                </div>
+                <div class="u-align-left u-form-group u-form-submit u-form-group-3">
+                  <a href="#" class="u-active-custom-color-2 u-border-1 u-border-active-custom-color-2 u-border-black u-border-hover-custom-color-2 u-btn u-btn-submit u-button-style u-custom-color-1 u-hover-custom-color-2 u-btn-1">Отправить<br>
+                  </a>
+                  <input type="submit" value="submit" class="u-form-control-hidden">
+                </div>
+                <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                <input type="hidden" value="" name="recaptchaResponse">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="u-align-center u-clearfix u-custom-color-1 u-section-3" id="carousel_1167">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-1">Наши контакты</h2>
+        <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-col">
+                    <div class="u-size-30">
+                        <div class="u-layout-row">
+                            <div class="u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
+                                <div class="u-container-layout u-valign-top u-container-layout-1"><span
+                                        class="u-icon u-icon-circle u-text-grey-40 u-icon-1"><svg class="u-svg-link"
+                                                                                                  preserveAspectRatio="xMidYMin slice"
+                                                                                                  viewBox="0 0 512 512"
+                                                                                                  style=""><use
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-fb01"></use></svg><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" id="svg-fb01" x="0px" y="0px" viewBox="0 0 512 512"
+                                        style="enable-background:new 0 0 512 512;" xml:space="preserve"
+                                        class="u-svg-content"><g><g><path d="M256,0C153.755,0,70.573,83.182,70.573,185.426c0,126.888,165.939,313.167,173.004,321.035    c6.636,7.391,18.222,7.378,24.846,0c7.065-7.868,173.004-194.147,173.004-321.035C441.425,83.182,358.244,0,256,0z M256,278.719    c-51.442,0-93.292-41.851-93.292-93.293S204.559,92.134,256,92.134s93.291,41.851,93.291,93.293S307.441,278.719,256,278.719z"></path>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></span>
+                                    <h6 class="u-align-center u-text u-text-2">Наш адрес<br>
+                                    </h6>
+                                    <p class="u-align-center u-text u-text-3"> Выборгское ш. 35 к.1</p>
+                                </div>
+                            </div>
+                            <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                                <div class="u-container-layout u-valign-top u-container-layout-2"><span
+                                        class="u-icon u-icon-circle u-text-grey-40 u-icon-2"><svg class="u-svg-link"
+                                                                                                  preserveAspectRatio="xMidYMin slice"
+                                                                                                  viewBox="0 0 384 384"
+                                                                                                  style=""><use
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-cd86"></use></svg><svg
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        version="1.1" id="svg-cd86" x="0px" y="0px" viewBox="0 0 384 384"
+                                        style="enable-background:new 0 0 384 384;" xml:space="preserve"
+                                        class="u-svg-content"><g><g><path d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594    c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448    c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813    C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z"></path>
+</g>
+</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></span>
+                                    <h6 class="u-align-center u-text u-text-4">Телефон<br>
+                                    </h6>
+                                    <p class="u-align-center u-text u-text-5"> +7-921-906-45-48</p>
+                                </div>
+                            </div>
+                            <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                                <div class="u-container-layout u-valign-top u-container-layout-3"><span
+                                        class="u-icon u-icon-circle u-icon-3"><svg class="u-svg-link"
+                                                                                   preserveAspectRatio="xMidYMin slice"
+                                                                                   viewBox="0 0 512 512" style=""><use
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-9f9c"></use></svg><svg
+                                        class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-9f9c"
+                                        style="enable-background:new 0 0 512 512;"><g><g><path
+                                        d="M467,61H45C20.218,61,0,81.196,0,106v300c0,24.72,20.128,45,45,45h422c24.72,0,45-20.128,45-45V106    C512,81.28,491.872,61,467,61z M460.786,91L256.954,294.833L51.359,91H460.786z M30,399.788V112.069l144.479,143.24L30,399.788z     M51.213,421l144.57-144.57l50.657,50.222c5.864,5.814,15.327,5.795,21.167-0.046L317,277.213L460.787,421H51.213z M482,399.787    L338.213,256L482,112.212V399.787z"></path>
+</g>
+</g></svg></span>
+                                    <h6 class="u-align-center u-text u-text-6">почта<br>
+                                    </h6>
+                                    <p class="u-align-center u-text u-text-7"> hltuning.ru@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="u-size-30">
+                        <div class="u-layout-row">
+                            <div class="u-size-20">
+                                <div class="u-layout-col">
+                                    <div class="u-container-style u-layout-cell u-left-cell u-size-60 u-layout-cell-4">
+                                        <div class="u-container-layout u-valign-middle u-container-layout-4">
+                                            <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                                                <a class="u-social-url" title="instagram" target="_blank"
+                                                   href="https://instagram.com/name"><span
+                                                        class="u-icon u-social-icon u-social-instagram u-icon-4"><svg
+                                                        class="u-svg-link" preserveAspectRatio="xMidYMin slice"
+                                                        viewBox="0 0 112 112" style=""><use
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        xlink:href="#svg-ef6f"></use></svg><svg class="u-svg-content"
+                                                                                                viewBox="0 0 112 112"
+                                                                                                x="0" y="0"
+                                                                                                id="svg-ef6f"><path
+                                                        fill="currentColor" d="M55.9,32.9c-12.8,0-23.2,10.4-23.2,23.2s10.4,23.2,23.2,23.2s23.2-10.4,23.2-23.2S68.7,32.9,55.9,32.9z
+	 M55.9,69.4c-7.4,0-13.3-6-13.3-13.3c-0.1-7.4,6-13.3,13.3-13.3s13.3,6,13.3,13.3C69.3,63.5,63.3,69.4,55.9,69.4z"></path><path
+                                                        fill="#FFFFFF"
+                                                        d="M79.7,26.8c-3,0-5.4,2.5-5.4,5.4s2.5,5.4,5.4,5.4c3,0,5.4-2.5,5.4-5.4S82.7,26.8,79.7,26.8z"></path><path
+                                                        fill="currentColor" d="M78.2,11H33.5C21,11,10.8,21.3,10.8,33.7v44.7c0,12.6,10.2,22.8,22.7,22.8h44.7c12.6,0,22.7-10.2,22.7-22.7
+	V33.7C100.8,21.1,90.6,11,78.2,11z M91,78.4c0,7.1-5.8,12.8-12.8,12.8H33.5c-7.1,0-12.8-5.8-12.8-12.8V33.7
+	c0-7.1,5.8-12.8,12.8-12.8h44.7c7.1,0,12.8,5.8,12.8,12.8V78.4z"></path></svg></span>
+                                                </a>
+                                                <a class="u-social-url" target="_blank" title="VK" href=""><span
+                                                        class="u-icon u-social-icon u-social-vk u-icon-5"><svg
+                                                        class="u-svg-link" preserveAspectRatio="xMidYMin slice"
+                                                        viewBox="0 0 112 112" style=""><use
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        xlink:href="#svg-9dd5"></use></svg><svg class="u-svg-content"
+                                                                                                viewBox="0 0 112 112"
+                                                                                                x="0" y="0"
+                                                                                                id="svg-9dd5"><circle
+                                                        fill="currentColor" class="st0" cx="56.1" cy="56.1"
+                                                        r="55"></circle><path fill="#FFFFFF" d="M88.2,80.7l-9.8,0.1c0,0-2.1,0.4-4.9-1.5c-3.7-2.5-7.2-9.1-9.9-8.2C60.9,72,61,77.9,61,77.9s0,1.3-0.6,1.9
+            c-0.7,0.7-2,0.9-2,0.9H54c0,0-9.7,0.6-18.3-8.3c-9.3-9.7-17.6-29-17.6-29s-0.5-1.3,0-1.9c0.6-0.7,2.2-0.7,2.2-0.7l10.5-0.1
+            c0,0,1,0.2,1.7,0.7c0.6,0.4,0.9,1.2,0.9,1.2s1.7,4.3,4,8.2c4.4,7.6,6.4,9.3,7.9,8.4c2.2-1.2,1.5-10.7,1.5-10.7s0-3.5-1.1-5
+            c-0.9-1.2-2.5-1.5-3.3-1.6c-0.6-0.1,0.4-1.5,1.6-2.1c1.9-0.9,5.2-1,9.2-0.9c3.1,0,4,0.2,5.2,0.5c3.6,0.9,2.4,4.3,2.4,12.4
+            c0,2.6-0.5,6.3,1.4,7.5c0.8,0.5,2.8,0.1,7.7-8.3c2.3-4,4.1-8.6,4.1-8.6s0.4-0.8,1-1.2s1.4-0.3,1.4-0.3l11.1-0.1c0,0,3.3-0.4,3.9,1.1
+            c0.6,1.6-1.2,5.3-5.8,11.3c-7.4,9.9-8.3,9-2.1,14.7c5.9,5.5,7.1,8.1,7.3,8.5C93.4,80.4,88.2,80.7,88.2,80.7z"></path></svg></span>
+                                                </a>
+                                                <a class="u-social-url" target="_blank" title="YouTube" href=""><span
+                                                        class="u-icon u-social-icon u-social-youtube u-icon-6"><svg
+                                                        class="u-svg-link" preserveAspectRatio="xMidYMin slice"
+                                                        viewBox="0 0 112 112" style=""><use
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        xlink:href="#svg-bb26"></use></svg><svg class="u-svg-content"
+                                                                                                viewBox="0 0 112 112"
+                                                                                                x="0" y="0"
+                                                                                                id="svg-bb26"><circle
+                                                        fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path
+                                                        fill="#FFFFFF"
+                                                        d="M74.9,33.3H37.3c-7.4,0-13.4,6-13.4,13.4v18.8c0,7.4,6,13.4,13.4,13.4h37.6c7.4,0,13.4-6,13.4-13.4V46.7 C88.3,39.3,82.3,33.3,74.9,33.3L74.9,33.3z M65.9,57l-17.6,8.4c-0.5,0.2-1-0.1-1-0.6V47.5c0-0.5,0.6-0.9,1-0.6l17.6,8.9 C66.4,56,66.4,56.8,65.9,57L65.9,57z"></path></svg></span>
+                                                </a>
+                                                <a class="u-social-url" target="_blank" title="Telegram" href=""><span
+                                                        class="u-icon u-social-icon u-social-telegram u-icon-7"><svg
+                                                        class="u-svg-link" preserveAspectRatio="xMidYMin slice"
+                                                        viewBox="0 0 112 112" style=""><use
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        xlink:href="#svg-7a7e"></use></svg><svg class="u-svg-content"
+                                                                                                viewBox="0 0 112 112"
+                                                                                                x="0" y="0"
+                                                                                                id="svg-7a7e"><circle
+                                                        fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path
+                                                        fill="#FFFFFF" d="M18.4,53.2l64.7-24.9c3-1.1,5.6,0.7,4.7,5.3l0,0l-11,51.8c-0.8,3.7-3,4.6-6.1,2.8L53.9,75.8l-8.1,7.8
+	c-0.9,0.9-1.7,1.6-3.4,1.6l1.2-17l31.1-28c1.4-1.2-0.3-1.9-2.1-0.7L34.2,63.7l-16.6-5.2C14,57.4,14,54.9,18.4,53.2L18.4,53.2z"></path></svg></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-size-40">
+                                <div class="u-layout-col">
+                                    <div class="u-container-style u-layout-cell u-right-cell u-size-60 u-layout-cell-5">
+                                        <div class="u-container-layout u-container-layout-5">
+                                            <div class="u-absolute-hcenter u-expanded u-grey-light-2 u-map">
+                                                <div class="embed-responsive">
+                                                    <iframe class="embed-responsive-item"
+                                                            src="//maps.google.com/maps?output=embed&amp;q=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%92%D1%8B%D0%B1%D0%BE%D1%80%D0%B3%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2035%20%D0%BA%201&amp;z=12&amp;t=m"
+                                                            data-map="JTdCJTIyYWRkcmVzcyUyMiUzQSUyMiVEMCVBMSVEMCVCMCVEMCVCRCVEMCVCQSVEMSU4Mi0lRDAlOUYlRDAlQjUlRDElODIlRDAlQjUlRDElODAlRDAlQjElRDElODMlRDElODAlRDAlQjMlMkMlMjAlRDAlOTIlRDElOEIlRDAlQjElRDAlQkUlRDElODAlRDAlQjMlRDElODElRDAlQkElRDAlQkUlRDAlQjUlMjAlRDElODglRDAlQkUlRDElODElRDElODElRDAlQjUlMjAzNSUyMCVEMCVCQSUyMDElMjIlMkMlMjJ6b29tJTIyJTNBMTIlMkMlMjJ0eXBlSWQlMjIlM0ElMjJyb2FkJTIyJTJDJTIybGFuZyUyMiUzQSUyMiUyMiU3RA=="></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="u-clearfix u-custom-color-1 u-footer" id="sec-be74">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width-lg u-expanded-width-md u-expanded-width-xl u-expanded-width-xs u-gutter-30 u-layout-wrap u-layout-wrap-1">
+            <div class="u-gutter-0 u-layout">
+                <div class="u-layout-row">
+                    <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-20 u-size-20-md u-layout-cell-1">
+                        <div class="u-container-layout u-container-layout-1">
+                            <p class="u-text u-text-default u-text-1">О нас</p>
+                            <p class="u-text u-text-default u-text-2">Работа с юр. лицами</p>
+                            <p class="u-text u-text-default u-text-3">Реквизиты</p>
+                        </div>
+                    </div>
+                    <div class="u-align-left u-container-style u-layout-cell u-size-20 u-size-20-md u-layout-cell-2">
+                        <div class="u-container-layout u-valign-top u-container-layout-2">
+                            <img class="u-image u-image-1" src="images/logo.png" data-image-width="1680"
+                                 data-image-height="630">
+                        </div>
+                    </div>
+                    <div class="u-align-left u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-20 u-size-20-md u-layout-cell-3">
+                        <div class="u-container-layout u-container-layout-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="u-align-left u-border-1 u-border-white u-expanded-width u-line u-line-horizontal u-opacity u-opacity-25 u-line-1"></div>
+    </div>
+</footer>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/nicepage.js' %}"></script>
+</body>
+</html>

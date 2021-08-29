@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block headers %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'main/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<section style="height: 110vh;">
+    <div class="imgBx">
+        <img src="{% static 'main/bmw-bg.jpg' %}" alt=""/>
+    </div>
+    <div class="contentBx">
+        <div class="formBx">
+            <h3>Регистрация</h3>
+            <form action="" method="POST">
+            {% csrf_token %}
+            <div class="inputBx">
+                <span>Логин</span>
+                <input type="text" name="username" maxlength="150" class="" required id="id_username"/>
+            </div>
+            <div class="inputBx">
+                <span>Пароль</span>
+                <input type="password" name="password" maxlength="150" class="" required id="id_password"/>
+            </div>
+            <div class="inputBx">
+                <span>Подтвердите пароль</span>
+                <input type="password" name="confirm_password" maxlength="150" class="" required id="id_confirm_password"/>
+            </div>
+            <div class="inputBx">
+                <span>Телефон</span>
+                <input type="text" name="phone" maxlength="150" class="" id="id_phone"/>
+            </div>
+            <div class="inputBx">
+                <input type="submit" class="btn btn-success" value="Зарегистрироваться"/>
+            </div>
+            <div class="inputBx">
+                <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+            </div>
+        </form>
+        <h4>Войдите через социальные сети</h4>
+        <ul class="sci">
+            <li><img src="{% static 'main/vk.png' %}" alt=""></li>
+            <li><img src="{% static 'main/instagram.png' %}" alt=""></li>
+            <li><img src="{% static 'main/google-glass-logo.png' %}" alt=""></li>
+        </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

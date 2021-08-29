@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block headers %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'shop/style.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="categories">
+    <div class="category-list">
+        {% for category in categories %}
+        <h4><a href="{% url 'category' slug=current_category.slug %}"><span></span>{{ category.name }}</a></h4>
+        {% if current_category == category %}
+        {% for subcategory in subcategories %}
+        <h5><a href="{% url 'subcategory' category_slug=current_category.slug subcategory_slug=subcategory.slug %}">{{ subcategory.name }}</a></h5>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="categories">
+            {% for subcategory in subcategories %}
+            <div class="box">
+                <div class="bg" style="background-image: url({{ subcategory.image.url }});"></div>
+                <a href="{% url 'subcategory' category_slug=current_category.slug subcategory_slug=subcategory.slug %}">
+                    <h3>{{ subcategory.name }}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="products">
+            {% for product in products %}
+            <h4>{{product.title}}</h4>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<script src="{% static 'main/script.js' %}"></script>
+{% endblock %}
