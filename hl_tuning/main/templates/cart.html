@@ -38,11 +38,22 @@
             <td><img src="{{ item.product.image.url }}" class="img-fluid"></td>
             <td>{{ item.product.price }} руб.</td>
             <td>
-                <form action="{% url 'change_qty' slug=item.product.slug %}" method="POST">
+                <form id="qty-change-{{item.product.slug}}" action="{% url 'change_qty' slug=item.product.slug %}"
+                      method="POST">
                     {% csrf_token %}
                     <input type="number" class="form-control" name="qty" style="width: 70px;" min="1"
                            value="{{ item.qty }}">
                 </form>
+                <script>
+                    const qtyChange = document.getElementById('qty-change-{{item.product.slug}}')
+                    const qtyChangeInput = qtyChange.querySelector('input')
+                    qtyChange.onchange = (ev) => {
+                        console.log('here')
+                        let qty = ev.target.value
+                        console.log(qty)
+                        qtyChange.submit()
+                    }
+                </script>
             </td>
             <td>{{ item.final_price }} руб.</td>
             <td>
