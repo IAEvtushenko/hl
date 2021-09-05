@@ -66,6 +66,12 @@
                                     class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
                                     style="padding: 10px 20px;"><div class="glow"></div><p>{% if user.first_name %} {{ user.first_name }} {% else %} {{ user.username }} {% endif %}</p></a>
                             </li>
+                            {% else %}
+                            <li class="u-nav-item"><a
+                                    href="{% url 'login' %}"
+                                    class="u-button-style u-nav-link u-text-active-custom-color-3 u-text-hover-custom-color-3"
+                                    style="padding: 10px 20px;"><div class="glow"></div><p>Войти</p></a>
+                            </li>
                             {% endif %}
                             <li class="u-nav-item"><a
                                     href="{% url 'cart' %}"
