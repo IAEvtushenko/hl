@@ -50,6 +50,7 @@ class LKView(CartMixin, View):
         }
         return render(request, self.template_name, context)
 
+    @transaction.atomic
     def post(self, request, *args, **kwargs):
         form = LKForm(request.POST or None)
         user = request.user
@@ -71,7 +72,7 @@ class LKView(CartMixin, View):
             customer.save()
             return HttpResponseRedirect('/')
         context = {'form': form, 'user': user, 'cart': self.cart}
-        return render(request, 'lk.html', context)
+        return render(request, 'main.html', context)
 
 
 class ProjectDetailView(CartMixin, View):
@@ -122,7 +123,6 @@ class ChangeQTYView(CartMixin, View):
         cart_product.qty = qty
         cart_product.save()
         recalc_cart(self.cart)
-        messages.add_message(request, messages.INFO, "Кол-во успешно изменено")
         return HttpResponseRedirect('/cart/')
 
 
