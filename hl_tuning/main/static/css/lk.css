@@ -18,6 +18,18 @@ input {
     border-bottom: 1px solid var(--clr-neutral-900);
 }
 
+.submit {
+  width: 300px;
+  font-size: 24px;
+  margin-top: 20px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.submit:hover {
+  transform: scale(1.05);
+}
+
 .u-section-1 .u-text-1 {
   font-size: 3rem;
   width: 841px;
