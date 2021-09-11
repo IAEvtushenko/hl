@@ -199,6 +199,30 @@ body {
     background: var(--clr-neutral-900);
 }
 
+#works form {
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--clr-neutral-100);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    background: transparent;
+    border-radius: 30px;
+}
+
+#works form select option {
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid var(--clr-neutral-100);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    background: transparent;
+    border-radius: 30px;
+}
+
 #works .container {
     display: flex;
     flex-wrap: wrap;

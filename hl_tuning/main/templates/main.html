@@ -150,6 +150,24 @@
     </div>
 </section>
 <section id="works">
+    <form action="/" method="get">
+        {% csrf_token %}
+        <p><select size="5" multiple name="Brand">
+            <option disabled>Выберите марку</option>
+            {% for brand in brands %}
+            <option value="{{ brand.name }}">{{ brand.name }}</option>
+            {% endfor %}}
+        </select></p>
+        <p><input type="submit" value="Выбрать"></p>
+    </form>
+    <script>
+        const form = document.querySelector('#works').querySelector('form')
+        const select = form.querySelector('select')
+        select.onchange = (e) => {
+            form.action = '/'
+            form.action += e.target.value
+        }
+    </script>
     <div class="container">
         {% for work in works %}
         <div class="card" style="background-image: url({{work.media_for_main_page}});">

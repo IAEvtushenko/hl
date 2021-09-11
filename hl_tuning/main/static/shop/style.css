@@ -188,10 +188,6 @@ body {
     background-position: center center;
 }
 
-.products .box:hover .bg {
-    display: none;
-}
-
 .products .box a p{
     position: absolute;
     bottom: 50px;

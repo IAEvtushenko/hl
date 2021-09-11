@@ -235,7 +235,7 @@ class Order(models.Model):
         (STATUS_COMPLETED, 'Заказ выполнен')
     )
 
-    BUYING_TYPE_CHOICES = (
+    DELIVERY_TYPE_CHOICES = (
         (BUYING_TYPE_SELF, 'Самовывоз'),
         (BUYING_TYPE_DELIVERY, 'Доставка')
     )
@@ -262,7 +262,7 @@ class Order(models.Model):
     buying_type = models.CharField(
         max_length=100,
         verbose_name='Тип заказа',
-        choices=BUYING_TYPE_CHOICES,
+        choices=DELIVERY_TYPE_CHOICES,
         default=BUYING_TYPE_SELF
     )
     paying_type = models.CharField(

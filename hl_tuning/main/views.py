@@ -132,6 +132,7 @@ class CartView(CartMixin, View):
         user = request.user
         customer = Customer.objects.get(user=user)
         form = OrderForm(request.POST or None)
+        print(form.fields['delivery_type'])
         form.fields['first_name'].initial = user.first_name
         form.fields['phone'].initial = customer.phone
         form.fields['city'].initial = customer.city
@@ -280,6 +281,8 @@ class LoginView(CartMixin, View):
                 return HttpResponseRedirect('/')
             context = {'form': form, 'cart': self.cart}
             return render(request, 'login.html', context)
+        context = {'form': form, 'cart': self.cart}
+        return render(request, 'login.html', context)
 
 
 class SignUpView(CartMixin, View):
