@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'hl_tuning.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'postgres',
+'NAME': 'hltuning',
 'USER': 'postgres',
-'PASSWORD': '796797798pg',
+'PASSWORD': 'postgres',
 'HOST': 'localhost',
 'PORT': '5432'
 }
