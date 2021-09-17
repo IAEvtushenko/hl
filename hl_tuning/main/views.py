@@ -132,7 +132,6 @@ class CartView(CartMixin, View):
         user = request.user
         customer = Customer.objects.get(user=user)
         form = OrderForm(request.POST or None)
-        print(form.fields['delivery_type'])
         form.fields['first_name'].initial = user.first_name
         form.fields['phone'].initial = customer.phone
         form.fields['city'].initial = customer.city
