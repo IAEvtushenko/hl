@@ -7,7 +7,7 @@
 
 {% block content %}
 {% for product in products %}
-<a href="{% url 'product_detail' slug=product.slug %}">{{ product.title }}</a>
+<a href="{% url 'product_detail' pk=product.pk %}">{{ product.title }}</a>
 {% endfor %}
 <script src="{% static 'main/script.js' %}"></script>
 {% endblock %}

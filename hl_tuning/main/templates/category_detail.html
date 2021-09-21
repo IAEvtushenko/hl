@@ -9,10 +9,10 @@
 <section id="categories">
     <div class="category-list">
         {% for category in categories %}
-        <h4><a href="{% url 'category' slug=current_category.slug %}"><span></span>{{ category.name }}</a></h4>
+        <h4><a href="{% url 'category' pk=current_category.pk %}"><span></span>{{ category.name }}</a></h4>
         {% if current_category == category %}
         {% for subcategory in subcategories %}
-        <h5><a href="{% url 'subcategory' category_slug=current_category.slug subcategory_slug=subcategory.slug %}">{{ subcategory.name }}</a></h5>
+        <h5><a href="{% url 'subcategory' category_pk=current_category.pk subcategory_pk=subcategory.pk %}">{{ subcategory.name }}</a></h5>
         {% endfor %}
         {% endif %}
         {% endfor %}
@@ -22,7 +22,7 @@
             {% for subcategory in subcategories %}
             <div class="box">
                 <div class="bg" style="background-image: url({{ subcategory.image.url }});"></div>
-                <a href="{% url 'subcategory' category_slug=current_category.slug subcategory_slug=subcategory.slug %}">
+                <a href="{% url 'subcategory' category_pk=current_category.pk subcategory_pk=subcategory.pk %}">
                     <h3>{{ subcategory.name }}</h3>
                 </a>
             </div>

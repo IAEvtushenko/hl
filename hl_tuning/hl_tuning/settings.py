@@ -15,7 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+from .prod_settings import ALLOWED_HOSTS as prod_host
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-5=40eqoq&mhxr2qy7wj+y8)l8@2&!8aoht8k0*bgryjr#8+60n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+if not DEBUG:
+    ALLOWED_HOSTS = prod_host
 
 
 # Application definition
@@ -129,6 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 try:
-    from .local_settings import *
-except ImportError:
     from .prod_settings import *
+except ImportError:
+    from .local_settings import *

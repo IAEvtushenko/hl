@@ -14,7 +14,7 @@ def get_models_for_count(*model_names):
 
 def get_product_url(obj, viewname):
     ct_model = obj.__class__._meta.model_name
-    return reverse(viewname, kwargs={'ct_model': ct_model, 'slug': obj.slug})
+    return reverse(viewname, kwargs={'ct_model': ct_model, 'pk': obj.pk})
 
 
 class MinResolutionErrorException(Exception):
@@ -46,13 +46,12 @@ class Service(models.Model):
 class Brand(models.Model):
 
     name = models.CharField(max_length=255, verbose_name='Марка')
-    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('brand_detail', kwargs={'slug': self.slug})
+        return reverse('brand_detail', kwargs={'pk': self.pk})
 
     @property
     def products(self):
@@ -68,7 +67,6 @@ class Work(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     subtitle = models.CharField(max_length=255, blank=True, verbose_name='Подзаголовок')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, verbose_name='Марка автомобиля')
-    slug = models.SlugField(unique=True)
     description = models.TextField(verbose_name='Описание', null=True)
     services = models.ManyToManyField(Service, blank=True, related_name='related_work', verbose_name='Услуги')
 
@@ -95,14 +93,13 @@ class Work(models.Model):
 class Category(models.Model):
 
     name = models.CharField(max_length=255, verbose_name='Имя категории')
-    slug = models.SlugField(unique=True)
     image = models.ImageField(blank=True)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category_detail', kwargs={'slug': self.slug})
+        return reverse('category_detail', kwargs={'pk': self.pk})
 
     @property
     def products(self):
@@ -117,7 +114,6 @@ class Subcategory(models.Model):
 
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
     name = models.CharField(max_length=255, verbose_name='Имя подкатегории')
-    slug = models.SlugField(unique=True)
     image = models.ImageField(blank=True)
 
     def __str__(self):
@@ -136,7 +132,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, verbose_name='Категория', on_delete=models.CASCADE)
     subcategory = models.ForeignKey(Subcategory, verbose_name='Подкатегория', blank=True, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=255, verbose_name='Наименование')
-    slug = models.SlugField(unique=True)
     image = models.ImageField(verbose_name='Изображение')
     description = models.TextField(verbose_name='Описание', blank=True)
     characteristics = models.TextField(verbose_name='Характеристики', blank=True)

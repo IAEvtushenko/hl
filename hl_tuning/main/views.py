@@ -18,7 +18,7 @@ class MainView(CartMixin, View):
 
     def get(self, request, brand=''):
         if brand:
-            brand = Brand.objects.filter(slug=brand).first()
+            brand = Brand.objects.filter(pk=brand).first()
             works = Work.objects.filter(brand=brand)
         else:
             works = Work.objects.all()
@@ -80,8 +80,8 @@ class ProjectDetailView(CartMixin, View):
     template_name = 'project_detail.html'
 
     def get(self, request, *args, **kwargs):
-        slug = kwargs.get('slug')
-        work = Work.objects.get(slug=slug)
+        pk = kwargs.get('pk')
+        work = Work.objects.get(pk=pk)
         description = work.description.split('\n')
         print(description)
         context = {
@@ -101,7 +101,7 @@ class ShopMainView(CartMixin, View):
         categories = Category.objects.all()
         if category:
             self.template_name = 'category_detail.html'
-            category = Category.objects.filter(slug=category).first()
+            category = Category.objects.filter(pk=category).first()
             products = Product.objects.filter(category=category)
             context = {'categories': categories, 'products': products, 'cart': self.cart, 'user': request.user}
             return render(request, self.template_name, context)
@@ -114,8 +114,8 @@ class ShopMainView(CartMixin, View):
 class ChangeQTYView(CartMixin, View):
 
     def post(self, request, *args, **kwargs):
-        product_slug = kwargs.get('slug')
-        product = Product.objects.get(slug=product_slug)
+        product_pk = kwargs.get('pk')
+        product = Product.objects.get(pk=product_pk)
         cart_product = CartProduct.objects.get(
             user=self.cart.owner, cart=self.cart, product=product
         )
@@ -149,7 +149,7 @@ class ProductDetailView(CartMixin, View):
     template_name = 'product_detail.html'
 
     def get(self, request, *args, **kwargs):
-        product = Product.objects.get(slug=kwargs.get('slug'))
+        product = Product.objects.get(pk=kwargs.get('pk'))
         categories = Category.objects.all()
         subcategories = product.subcategory
         current_category = product.category
@@ -171,7 +171,7 @@ class CategoryView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
         categories = Category.objects.all()
-        current_category = Category.objects.get(slug=kwargs.get('slug'))
+        current_category = Category.objects.get(pk=kwargs.get('pk'))
         subcategories = Subcategory.objects.filter(category=current_category)
         products = Product.objects.filter(category=current_category)
         context = {
@@ -189,8 +189,8 @@ class SubcategoryView(CartMixin, View):
     template_name = 'subcategory_detail.html'
 
     def get(self, request, *args, **kwargs):
-        category = Category.objects.get(slug=kwargs.get('category_slug'))
-        subcategory = Subcategory.objects.get(category=category, slug=kwargs.get('subcategory_slug'))
+        category = Category.objects.get(pk=kwargs.get('category_pk'))
+        subcategory = Subcategory.objects.get(category=category, pk=kwargs.get('subcategory_pk'))
         products = Product.objects.filter(subcategory=subcategory)
         context = {
             'category': category,
@@ -205,8 +205,8 @@ class SubcategoryView(CartMixin, View):
 class AddToCartView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
-        product_slug = kwargs.get('slug')
-        product = Product.objects.get(slug=product_slug)
+        product_pk = kwargs.get('pk')
+        product = Product.objects.get(pk=product_pk)
         cart_product, created = CartProduct.objects.get_or_create(
             user=self.cart.owner, cart=self.cart, product=product
         )
@@ -222,8 +222,8 @@ class AddToCartView(CartMixin, View):
 class DeleteFromCartView(CartMixin, View):
 
     def get(self, request, *args, **kwargs):
-        product_slug = kwargs.get('slug')
-        product = Product.objects.get(slug=product_slug)
+        product_pk = kwargs.get('pk')
+        product = Product.objects.get(pk=product_pk)
         cart_product = CartProduct.objects.get(
             user=self.cart.owner, cart=self.cart, product=product
         )

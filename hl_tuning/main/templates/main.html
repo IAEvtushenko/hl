@@ -174,7 +174,7 @@
             <div class="card-content">
                 <h4 class="card-title">{{ work.title }}</h4>
                 <p class="card-body">{{ work.subtitle }}</p>
-                <a href="{% url 'project_detail' slug=work.slug %}" class="button">Подробнее</a>
+                <a href="{% url 'project_detail' pk=work.pk %}" class="button">Подробнее</a>
             </div>
         </div>
         {% endfor %}

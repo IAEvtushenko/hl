@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+    --clr-neutral-900: #091A24;
+    --clr-neutral-100: #561044;
+    --clr-accent-400: #217194;
+    --clr-accent-500: #DA6F29;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Merriweather", sans-serif;
+}
+
+body {
+    min-height: 150vh;
+    background: var(--clr-neutral-900);
+}
+
+.filters {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-neutral-900);
+}
+
+@keyframes filters {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.filters:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    transform: skewX(2deg) skewY(4deg);
+    background: linear-gradient(315deg, #00ccff, #0e1538, #d400d4);
+    z-index: -1;
+}
+
+.filters:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    transform: skewX(2deg) skewY(4deg);
+    background: linear-gradient(315deg, #00ccff, #0e1538, #d400d4);
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.filters:before,
+.filters:after {
+    animation: filters 5s ease infinite;
+}
+
+.products {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+
+.card {
+    color: #fff;
+    background-size: cover;
+    padding: 10rem 0 0;
+    width: 45ch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    margin: 30px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    overflow: visible;
+}
+
+.card .text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    border-radius: 0.5rem;
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(20 0% 0% / 0.3) 20%,
+        hsl(0 0% 0% / 1)
+    );
+    transform: translateY(60%);
+    transition: transform 500ms ease;
+    border-radius: 0.5rem;
+}
+
+.card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+.card:hover .card-content {
+    transform: translateY(0);
+}
+
+.card:hover .card-content > *:not(.card-title) {
+    opacity: 1;
+}
+
+.card-title {
+    position: relative;
+    padding: 0.25em 0;
+}
+
+.card-body {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 1rem 0;
+}
+
+.button {
+    cursor: pointer;
+    display: inline;
+    text-decoration: none;
+    color: #fff;
+    background: var(--clr-neutral-100);
+    padding: 0.5em 1.25em;
+    border-radius: 0.25em;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--clr-accent-400);
+    color: #fff;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(315deg, #00ccff, #0e1538, #d400d4);
+    z-index: -1;
+    opacity: 0;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(315deg, #00ccff, #0e1538, #d400d4);
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0;
+    transition: 2s;
+}
+
+.card:hover:before,
+.card:hover:after {
+    opacity: 1;
+    transition: opacity 2s ease;
+}

@@ -38,14 +38,14 @@
             <td><img src="{{ item.product.image.url }}" class="img-fluid"></td>
             <td>{{ item.product.price }} руб.</td>
             <td>
-                <form id="qty-change-{{item.product.slug}}" action="{% url 'change_qty' slug=item.product.slug %}"
+                <form id="qty-change-{{item.product.pk}}" action="{% url 'change_qty' pk=item.product.pk %}"
                       method="POST">
                     {% csrf_token %}
                     <input type="number" class="form-control" name="qty" style="width: 70px;" min="1"
                            value="{{ item.qty }}">
                 </form>
                 <script>
-                    const qtyChange = document.getElementById('qty-change-{{item.product.slug}}')
+                    const qtyChange = document.getElementById('qty-change-{{item.product.pk}}')
                     const qtyChangeInput = qtyChange.querySelector('input')
                     qtyChange.onchange = (ev) => {
                         console.log('here')
@@ -57,7 +57,7 @@
             </td>
             <td>{{ item.final_price }} руб.</td>
             <td>
-                <a href="{% url 'delete_from_cart' slug=item.product.slug %}">
+                <a href="{% url 'delete_from_cart' pk=item.product.pk %}">
                     <button class="btn btn-danger">Удалить из корзины</button>
                 </a>
             </td>
